@@ -6,7 +6,7 @@ class Conectar
     private $server = "localhost";
     private $usu = "root";
     private $clave = ""; 
-    private $base = "parcial";
+    private $base = "hotel2";
 
     public function Procedimiento_Conectar() {
         $this->conexion = new mysqli($this->server, $this->usu, $this->clave, $this->base);
