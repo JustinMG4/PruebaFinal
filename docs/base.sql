@@ -44,3 +44,15 @@ CREATE TABLE detalle_reservaciones (
     FOREIGN KEY (id_habitacion) REFERENCES Habitaciones(id_habitacion)
 );
 
+--trigger para eliminar detalle_reservaciones
+DELIMITER //
+
+CREATE TRIGGER before_reservacion_delete
+BEFORE DELETE ON reservaciones
+FOR EACH ROW
+BEGIN
+    DELETE FROM detalle_reservaciones WHERE id_reservacion = OLD.id_reservacion;
+END;
+//
+
+DELIMITER ;
